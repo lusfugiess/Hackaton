@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PopusMagnifikus : MonoBehaviour
+public class PopusMagnifikusDamage : MonoBehaviour
 {
     public int initialHP = 50;
     public float damageRadius = 3f;

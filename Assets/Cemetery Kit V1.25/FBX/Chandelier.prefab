@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2510332965829304252}
   m_Layer: 7
   m_Name: Chandelier
-  m_TagString: GrabbableObjects
+  m_TagString: MediumObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - GrabbableObjects
+  - SmallObjects
+  - MediumObjects
+  - LargeObjects
   layers:
   - Default
   - TransparentFX

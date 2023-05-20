@@ -8,6 +8,9 @@ TagManager:
   - SmallObjects
   - MediumObjects
   - LargeObjects
+  - pope
+  - popey
+  - popusMagnifikus
   layers:
   - Default
   - TransparentFX

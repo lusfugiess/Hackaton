@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
@@ -12,6 +13,8 @@ public class PlayerDamage : MonoBehaviour
     private bool canTakeDamage = true;
     private bool isPlayerAlive = true;
 
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI deathText;
 
     void Start()
     {
@@ -88,7 +91,7 @@ public class PlayerDamage : MonoBehaviour
             }
         }
     }
-    ///PopusMagnifikus
+   
 
     private void TakeDamage()
     {
@@ -99,6 +102,7 @@ public class PlayerDamage : MonoBehaviour
 
         currentHP--;
         canTakeDamage = false;
+        UpdateHPText();
 
         if (currentHP <= 0)
         {
@@ -118,5 +122,13 @@ public class PlayerDamage : MonoBehaviour
     private void Die()
     {
         isPlayerAlive = false;
+        deathText.text = "Player has died!";
     }
+
+    private void UpdateHPText()
+    {
+        livesText.text = "Current HP: " + currentHP;
+    }
+
+
 }

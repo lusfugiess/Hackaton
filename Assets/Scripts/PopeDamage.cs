@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PopeDamage : MonoBehaviour
@@ -12,6 +13,9 @@ public class PopeDamage : MonoBehaviour
     private bool canTakeDamage = true;
     private bool isPopeAlive = true;
 
+
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI deathText;
 
     void Start()
     {
@@ -95,6 +99,7 @@ public class PopeDamage : MonoBehaviour
 
             currentHP--;
             canTakeDamage = false;
+            UpdateHPText();
 
             if (currentHP <= 0)
             {
@@ -117,6 +122,10 @@ public class PopeDamage : MonoBehaviour
         Disapire();
     }
 
+    private void UpdateHPText()
+    {
+        livesText.text = "HP: " + currentHP;
+    }
     private void Disapire()
     {
 

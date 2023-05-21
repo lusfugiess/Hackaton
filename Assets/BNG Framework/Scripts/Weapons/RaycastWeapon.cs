@@ -69,7 +69,7 @@ namespace BNG {
         [Header("Projectile Settings : ")]
 
         [Tooltip("If true a projectile will always be used instead of a raycast")]
-        public bool AlwaysFireProjectile = false;
+        public bool AlwaysFireProjectile = true;
 
         [Tooltip("If true the ProjectilePrefab will be instantiated during slowmo instead of using a raycast.")]
         public bool FireProjectileInSlowMo = true;
@@ -366,7 +366,7 @@ namespace BNG {
                 return;
             }
 
-            // Create our own spatial clip
+            // Create our own spatial clips
             VRUtils.Instance.PlaySpatialClipAt(GunShotSound, transform.position, GunShotVolume);
 
             // Haptics
@@ -375,7 +375,7 @@ namespace BNG {
             }
 
             // Use projectile if Time has been slowed
-            bool useProjectile = AlwaysFireProjectile || (FireProjectileInSlowMo && Time.timeScale < 1);
+            bool useProjectile = AlwaysFireProjectile;
             if (useProjectile) {
                 GameObject projectile = Instantiate(ProjectilePrefab, MuzzlePointTransform.position, MuzzlePointTransform.rotation) as GameObject;
                 Rigidbody projectileRigid = projectile.GetComponentInChildren<Rigidbody>();

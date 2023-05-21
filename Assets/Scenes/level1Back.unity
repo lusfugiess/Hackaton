@@ -31554,7 +31554,7 @@ PrefabInstance:
       objectReference: {fileID: 1524215871}
     - target: {fileID: 6828809493050363770, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: initialHP
-      value: 30
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6828809493050363770, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: livesText

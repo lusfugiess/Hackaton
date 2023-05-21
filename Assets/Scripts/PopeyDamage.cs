@@ -152,7 +152,7 @@ public class PopeyDamage : MonoBehaviour
 
     private void UpdateHPText()
     {
-        livesText.text = "Popey HP: " + currentHP;
+        livesText.text = "Popey HP: " + currentHP.ToString();
     }
 
     

@@ -151,7 +151,7 @@ public class PopusMagnifikusDamage : MonoBehaviour
     }
     private void UpdateHPText()
     {
-        livesText.text = "PopusMagnifikus HP: " + currentHP;
+        livesText.text = "PopusMagnifikus HP: " + currentHP.ToString();
     }
 
 

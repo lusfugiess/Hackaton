@@ -152,7 +152,7 @@ public class PopeDamage : MonoBehaviour
 
     private void UpdatePopesHPText()
     {
-        livesText.text = "Pope HP: " + currentHP;
+        livesText.text = "Pope HP: " + currentHP.ToString();
     }
     
 }

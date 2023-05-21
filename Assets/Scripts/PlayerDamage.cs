@@ -127,7 +127,7 @@ public class PlayerDamage : MonoBehaviour
 
     private void UpdateHPText()
     {
-        livesText.text = "Current HP: " + currentHP;
+        livesText.text = "Current HP: " + currentHP.ToString();
     }
 
 

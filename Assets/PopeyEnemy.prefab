@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 1227087399408972736}
   m_Layer: 0
   m_Name: PopeyEnemy
-  m_TagString: Untagged
+  m_TagString: popey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -538,8 +538,6 @@ MonoBehaviour:
   damageRadius: 3
   damageInterval: 5
   currentHP: 0
-  livesText: {fileID: 1250794831283871044}
-  deathText: {fileID: 1250794831283871044}
 --- !u!1 &3203359806615846867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1115,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: bc97d001eb85a2e4480f27f03063e07a, type: 3}
+  - {fileID: 2100000, guid: 7da135ce3eb38d841b3d1f770437f7a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

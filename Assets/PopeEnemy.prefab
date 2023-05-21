@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 5688142904104581369}
   m_Layer: 0
   m_Name: PopeEnemy
-  m_TagString: Untagged
+  m_TagString: pope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,7 +1105,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: c5b05e1bee481574cb4ba8ca390bcfc4, type: 3}
+  - {fileID: 2100000, guid: 7da135ce3eb38d841b3d1f770437f7a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

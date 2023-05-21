@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 5073975521327855898}
   m_Layer: 0
   m_Name: PopusMagnificusEnemy
-  m_TagString: Untagged
+  m_TagString: popusMagnifikus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -605,8 +605,8 @@ MonoBehaviour:
   damageRadius: 3
   damageInterval: 5
   currentHP: 0
-  livesText: {fileID: 8128312038475592873}
-  deathText: {fileID: 8128312038475592873}
+  livesText: {fileID: 0}
+  deathText: {fileID: 0}
 --- !u!1 &3203359806615846867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1006,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 1b3dc757958c2f94582d42b24c878e22, type: 3}
+  - {fileID: 2100000, guid: eb4f63a1c24846549b212d7c7f64a784, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1319,7 +1319,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 1b3dc757958c2f94582d42b24c878e22, type: 3}
+  - {fileID: 2100000, guid: 7da135ce3eb38d841b3d1f770437f7a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

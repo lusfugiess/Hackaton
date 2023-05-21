@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace KartGame.UI
+public class SceneLoader : MonoBehaviour
 {
-    public class LoadSceneButton : MonoBehaviour
-    {
-        [Tooltip("What is the name of the scene we want to load when clicking the button?")]
+    public string sceneName; // The name of the scene to load
 
-        	public void LoadScene()
-    	{
-        	SceneManager.LoadScene("level2B");
-    	}
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

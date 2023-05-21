@@ -48,6 +48,13 @@ public class PopeyDamage : MonoBehaviour
         }
     }
 
+    public AudioSource audioSource;
+    public AudioClip clip;
+    public float volume = 0.5f;
+    void PlayAudio()
+    {
+        audioSource.PlayOneShot(clip, volume);
+    }
     private void CheckSmallObjectsCollisions()
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("SmallObjects");
@@ -58,11 +65,7 @@ public class PopeyDamage : MonoBehaviour
 
             if (distance <= damageRadius)
             {
-                for (int i = 0; i <= 5; i++)
-                {
-                    TakeDamage();
-                }
-                break;
+                TakeDamage(5);
             }
         }
     }
@@ -76,11 +79,7 @@ public class PopeyDamage : MonoBehaviour
 
             if (distance <= damageRadius)
             {
-                for (int i = 0; i <= 15; i++)
-                {
-                    TakeDamage();
-                }
-                break;
+                TakeDamage(15);
             }
         }
     }
@@ -94,23 +93,20 @@ public class PopeyDamage : MonoBehaviour
 
             if (distance <= damageRadius)
             {
-                for (int i = 0; i <= 30; i++)
-                {
-                    TakeDamage();
-                }
-                break;
+                TakeDamage(30);
             }
         }
     }
 
-    private void TakeDamage()
+    private void TakeDamage(int damage)
     {
+        PlayAudio();
         if (!isPopeyAlive)
         {
             return;
         }
 
-        currentHP--;
+        currentHP = currentHP - damage;
         canTakeDamage = false;
         UpdateHPText();
 

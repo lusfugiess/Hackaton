@@ -99,7 +99,7 @@ public class PopeDamage : MonoBehaviour
 
             currentHP--;
             canTakeDamage = false;
-            UpdateHPText();
+            UpdatePopesHPText();
 
             if (currentHP <= 0)
             {
@@ -122,9 +122,9 @@ public class PopeDamage : MonoBehaviour
         Disapire();
     }
 
-    private void UpdateHPText()
+    private void UpdatePopesHPText()
     {
-        livesText.text = "HP: " + currentHP;
+        livesText.text = "Pope HP: " + currentHP;
     }
     private void Disapire()
     {

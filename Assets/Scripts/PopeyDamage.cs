@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PopeyDamage : MonoBehaviour
@@ -11,6 +12,11 @@ public class PopeyDamage : MonoBehaviour
     public int currentHP;
     private bool canTakeDamage = true;
     private bool isPopeyAlive = true;
+
+
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI deathText;
+
 
 
     void Start()
@@ -96,6 +102,7 @@ public class PopeyDamage : MonoBehaviour
 
         currentHP--;
         canTakeDamage = false;
+        UpdateHPText();
 
         if (currentHP <= 0)
         {
@@ -118,8 +125,13 @@ public class PopeyDamage : MonoBehaviour
         Disapire();
     }
 
-    private void Disapire() 
+    private void UpdateHPText()
     {
-        
+        livesText.text = "Popey HP: " + currentHP;
+    }
+
+    private void Disapire()
+    {
+
     }
 }

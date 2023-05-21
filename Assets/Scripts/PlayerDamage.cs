@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -31,76 +32,75 @@ public class PlayerDamage : MonoBehaviour
                 CheckPopeCollisions();
                 CheckPopeyCollisions();
                 CheckPopusMagnifikusCollisions();
+                CheckIfEnemiesAlive();
+            }
+        }
+    }
+
+    public AudioSource audioSource;
+    public AudioClip hurtClip;
+    public AudioClip deadClip;
+    public AudioClip winClip;
+    public float volume = 0.5f;
+    void PlayAudio(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip, volume);
+    }
+    public bool winGame = false;
+    private void CheckIfEnemiesAlive()
+    {
+        int aliveEnemies = 0;
+        aliveEnemies += GameObject.FindGameObjectsWithTag("popey").Length;
+        aliveEnemies += GameObject.FindGameObjectsWithTag("pope").Length;
+        aliveEnemies += GameObject.FindGameObjectsWithTag("popusMagnifikus").Length;
+        if (aliveEnemies == 0 && winGame == false)
+        {
+            PlayAudio(winClip);
+            livesText.SetText("You have won!");
+            winGame = true;
+            SceneManager.LoadScene("introMenu");
+        }
+    }
+
+    private void CheckCollisionsEnemy(GameObject[] enemies, int damage)
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distance <= damageRadius)
+            {
+                TakeDamage(damage);
             }
         }
     }
 
     private void CheckPopeCollisions()
     {
-        GameObject[] popes = GameObject.FindGameObjectsWithTag("pope");
-
-        foreach (GameObject pope in popes)
-        {
-            float distance = Vector3.Distance(transform.position, pope.transform.position);
-
-            if (distance <= damageRadius)
-            {
-                for (int i = 0; i <= 15; i++)
-                {
-                    TakeDamage();
-                }
-                break;
-            }
-        }
+        CheckCollisionsEnemy(GameObject.FindGameObjectsWithTag("pope"), 15);
     }
 
     private void CheckPopeyCollisions()
     {
-        GameObject[] popeys = GameObject.FindGameObjectsWithTag("popey");
-
-        foreach (GameObject popey in popeys)
-        {
-            float distance = Vector3.Distance(transform.position, popey.transform.position);
-
-            if (distance <= damageRadius)
-            {
-                for (int i = 0; i <= 5; i++)
-                {
-                    TakeDamage();
-                }
-                break;
-            }
-        }
+        CheckCollisionsEnemy(GameObject.FindGameObjectsWithTag("popey"), 5);
     }
 
     private void CheckPopusMagnifikusCollisions()
     {
-        GameObject[] PopusMagnifikuss = GameObject.FindGameObjectsWithTag("popusMagnifikus");
-
-        foreach (GameObject PopusMagnifikus in PopusMagnifikuss)
-        {
-            float distance = Vector3.Distance(transform.position, PopusMagnifikus.transform.position);
-
-            if (distance <= damageRadius)
-            {
-                for (int i = 0; i <= 50; i++)
-                {
-                    TakeDamage();
-                }
-                break;
-            }
-        }
+        CheckCollisionsEnemy(GameObject.FindGameObjectsWithTag("popusMagnifikus"), 50);
     }
    
 
-    private void TakeDamage()
+    private void TakeDamage(int damage)
     {
+        //if (hurtClip == null){Debug.Break();}
+        PlayAudio(hurtClip);
+
         if (!isPlayerAlive)
         {
             return;
         }
 
-        currentHP--;
+        currentHP = currentHP - damage;
         canTakeDamage = false;
         UpdateHPText();
 
@@ -121,6 +121,7 @@ public class PlayerDamage : MonoBehaviour
 
     private void Die()
     {
+        PlayAudio(deadClip);
         isPlayerAlive = false;
         deathText.text = "Player has died!";
     }
@@ -129,6 +130,4 @@ public class PlayerDamage : MonoBehaviour
     {
         livesText.text = "Current HP: " + currentHP.ToString();
     }
-
-
 }

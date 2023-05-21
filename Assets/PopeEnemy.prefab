@@ -90,7 +90,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.6
-  m_Speed: 3.5
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -571,6 +571,12 @@ MonoBehaviour:
   currentHP: 0
   livesText: {fileID: 0}
   deathText: {fileID: 0}
+  audioSource: {fileID: 0}
+  hurtClip: {fileID: 0}
+  deadClip: {fileID: 0}
+  winClip: {fileID: 0}
+  volume: 0.5
+  winGame: 0
 --- !u!4 &4486868034424961352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bc97d001eb85a2e4480f27f03063e07a, type: 3}

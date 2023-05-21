@@ -790,9 +790,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fea58c8ffdf8914b802239ebc2e364a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHP: 300
+  initialHP: 500
   damageRadius: 1
   damageInterval: 15
   currentHP: 0
   livesText: {fileID: 0}
   deathText: {fileID: 0}
+  audioSource: {fileID: 0}
+  hurtClip: {fileID: 0}
+  deadClip: {fileID: 0}
+  winClip: {fileID: 0}
+  volume: 0.5
+  winGame: 0

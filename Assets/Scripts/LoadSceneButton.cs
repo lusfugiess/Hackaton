@@ -7,8 +7,9 @@ public class Start : MonoBehaviour
 {
     public string scene;
 
-    public void OnButtonClick()
+    public void LoadSceneButton()
     {
-        SceneManager.LoadScene(scene);
+        Debug.Break();
+        SceneManager.LoadScene("level1Back");
     }
 }

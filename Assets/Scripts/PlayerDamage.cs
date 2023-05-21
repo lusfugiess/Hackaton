@@ -58,7 +58,7 @@ public class PlayerDamage : MonoBehaviour
             PlayAudio(winClip);
             livesText.SetText("You have won!");
             winGame = true;
-            SceneManager.LoadScene("introMenu");
+            SceneManager.LoadScene("WinScene");
         }
     }
 

@@ -26,7 +26,7 @@ public class PopeDamage : MonoBehaviour
     void Update()
     {
         if (isPopeAlive)
-        { 
+        {
             if (canTakeDamage)
             {
                 CheckSmallObjectsCollisions();
@@ -91,25 +91,37 @@ public class PopeDamage : MonoBehaviour
         }
     }
     private void TakeDamage()
+    {
+        if (!isPopeAlive)
         {
-            if (!isPopeAlive)
-            {
-                return;
-            }
+            return;
+        }
 
-            currentHP--;
-            canTakeDamage = false;
-            UpdatePopesHPText();
+        currentHP--;
+        canTakeDamage = false;
+        UpdatePopesHPText();
 
-            if (currentHP <= 0)
+        if (currentHP <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            Invoke("EnableDamage", damageInterval);
+        }
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, damageRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("SmallObjects") ||
+                collider.gameObject.CompareTag("MediumObjects") ||
+                collider.gameObject.CompareTag("LargeObjects"))
             {
-                Die();
-            }
-            else
-            {
-                Invoke("EnableDamage", damageInterval);
+                Destroy(collider.gameObject);
             }
         }
+    }
+
 
     private void EnableDamage()
     {
@@ -122,12 +134,31 @@ public class PopeDamage : MonoBehaviour
         Disapire();
     }
 
+    private void Disapire()
+    {
+        GameObject[] smallObjects = GameObject.FindGameObjectsWithTag("SmallObjects");
+        GameObject[] mediumObjects = GameObject.FindGameObjectsWithTag("MediumObjects");
+        GameObject[] largeObjects = GameObject.FindGameObjectsWithTag("LargeObjects");
+
+        foreach (GameObject obj in smallObjects)
+        {
+            Destroy(obj);
+        }
+
+        foreach (GameObject obj in mediumObjects)
+        {
+            Destroy(obj);
+        }
+
+        foreach (GameObject obj in largeObjects)
+        {
+            Destroy(obj);
+        }
+    }
+
     private void UpdatePopesHPText()
     {
         livesText.text = "Pope HP: " + currentHP;
     }
-    private void Disapire()
-    {
-
-    }
+    
 }

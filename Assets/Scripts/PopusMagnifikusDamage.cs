@@ -112,6 +112,16 @@ public class PopusMagnifikusDamage : MonoBehaviour
         {
             Invoke("EnableDamage", damageInterval);
         }
+        Collider[] colliders = Physics.OverlapSphere(transform.position, damageRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("SmallObjects") ||
+                collider.gameObject.CompareTag("MediumObjects") ||
+                collider.gameObject.CompareTag("LargeObjects"))
+            {
+                Destroy(collider.gameObject);
+            }
+        }
     }
 
     private void EnableDamage()
@@ -125,14 +135,31 @@ public class PopusMagnifikusDamage : MonoBehaviour
         Disapire();
     }
 
+    private void Disapire()
+    {
+        GameObject[] smallObjects = GameObject.FindGameObjectsWithTag("SmallObjects");
+        GameObject[] mediumObjects = GameObject.FindGameObjectsWithTag("MediumObjects");
+        GameObject[] largeObjects = GameObject.FindGameObjectsWithTag("LargeObjects");
+
+        foreach (GameObject obj in smallObjects)
+        {
+            Destroy(obj);
+        }
+
+        foreach (GameObject obj in mediumObjects)
+        {
+            Destroy(obj);
+        }
+
+        foreach (GameObject obj in largeObjects)
+        {
+            Destroy(obj);
+        }
+    }
     private void UpdateHPText()
     {
         livesText.text = "PopusMagnifikus HP: " + currentHP;
     }
 
 
-    private void Disapire()
-    {
-
-    }
 }

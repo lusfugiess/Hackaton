@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 4302561942119835875}
   - component: {fileID: 4302561942119835874}
   - component: {fileID: 5073975521327855898}
+  - component: {fileID: 420635479555974932}
   m_Layer: 0
   m_Name: PopusMagnificusEnemy
   m_TagString: popusMagnifikus
@@ -607,6 +608,29 @@ MonoBehaviour:
   currentHP: 0
   livesText: {fileID: 0}
   deathText: {fileID: 0}
+  playerTransform: {fileID: 0}
+--- !u!195 &420635479555974932
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779541845953403119}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.8
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3203359806615846867
 GameObject:
   m_ObjectHideFlags: 0

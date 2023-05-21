@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PopusMagnifikusDamage : MonoBehaviour
 {
@@ -17,10 +18,14 @@ public class PopusMagnifikusDamage : MonoBehaviour
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI deathText;
 
+    public Transform playerTransform;
+    private NavMeshAgent navMeshAgent;
+
 
     void Start()
     {
         currentHP = initialHP;
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
     }
 
@@ -33,6 +38,11 @@ public class PopusMagnifikusDamage : MonoBehaviour
                 CheckSmallObjectsCollisions();
                 CheckMediumObjectsCollisions();
                 CheckLargeObjectsCollisions();
+
+                if (playerTransform != null)
+                {
+                    navMeshAgent.SetDestination(playerTransform.position);
+                }
             }
         }
     }
@@ -135,26 +145,9 @@ public class PopusMagnifikusDamage : MonoBehaviour
         Disapire();
     }
 
-    private void Disapire()
+   private void Disapire()
     {
-        GameObject[] smallObjects = GameObject.FindGameObjectsWithTag("SmallObjects");
-        GameObject[] mediumObjects = GameObject.FindGameObjectsWithTag("MediumObjects");
-        GameObject[] largeObjects = GameObject.FindGameObjectsWithTag("LargeObjects");
-
-        foreach (GameObject obj in smallObjects)
-        {
-            Destroy(obj);
-        }
-
-        foreach (GameObject obj in mediumObjects)
-        {
-            Destroy(obj);
-        }
-
-        foreach (GameObject obj in largeObjects)
-        {
-            Destroy(obj);
-        }
+        gameObject.SetActive(false);
     }
     private void UpdateHPText()
     {

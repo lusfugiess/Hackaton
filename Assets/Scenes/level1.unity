@@ -17059,8 +17059,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1227087399408972736, guid: 012bc7c4640978d4ea5ddb4d7c3915b2, type: 3}
+      propertyPath: initialHP
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227087399408972736, guid: 012bc7c4640978d4ea5ddb4d7c3915b2, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227087399408972736, guid: 012bc7c4640978d4ea5ddb4d7c3915b2, type: 3}
+      propertyPath: damageInterval
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1227087399408972736, guid: 012bc7c4640978d4ea5ddb4d7c3915b2, type: 3}
       propertyPath: playerTransform
@@ -22436,7 +22444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2683195716791022646, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -44.852364
+      value: -3.1432571
       objectReference: {fileID: 0}
     - target: {fileID: 2683195716791022646, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: m_LocalRotation.w
